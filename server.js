@@ -9,16 +9,16 @@ const consoleDebugger = require('./plugins/consoleDebugger');
 
 const options = {
 	pageDoneCheckInterval: process.env.PAGE_DONE_CHECK_INTERVAL || 500,
-	pageLoadTimeout: process.env.PAGE_LOAD_TIMEOUT || 20000,
+	pageLoadTimeout: process.env.PAGE_LOAD_TIMEOUT || 30000,
 	waitAfterLastRequest: process.env.WAIT_AFTER_LAST_REQUEST || 250,
-	chromeFlags: [ '--no-sandbox', '--headless', '--disable-gpu', '--remote-debugging-port=9222', '--hide-scrollbars', '--disable-dev-shm-usage' ],
+	chromeFlags: [ '--headless', '--disable-gpu', '--remote-debugging-port=9222', '--hide-scrollbars', '--disable-dev-shm-usage' ],
 };
 console.log('Starting with options:', options);
 
 const server = prerender(options);
 
 server.use(log);
-server.use(healthcheck('_health'));
+//server.use(healthcheck('_health'));
 server.use(forwardHeaders);
 server.use(prerender.blockResources());
 server.use(prerender.removeScriptTags());
