@@ -23,7 +23,7 @@ server.use(forwardHeaders);
 server.use(prerender.blockResources());
 server.use(prerender.removeScriptTags());
 server.use(removePrefetchTags);
-//server.use(prerender.httpHeaders());
+server.use(prerender.httpHeaders());
 if (process.env.DEBUG_PAGES) {
 	server.use(consoleDebugger);
 }
