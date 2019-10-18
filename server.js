@@ -11,7 +11,7 @@ const options = {
 	pageDoneCheckInterval: process.env.PAGE_DONE_CHECK_INTERVAL || 500,
 	pageLoadTimeout: process.env.PAGE_LOAD_TIMEOUT || 30000,
 	waitAfterLastRequest: process.env.WAIT_AFTER_LAST_REQUEST || 1000,
-	chromeFlags: [ '--headless', '--disable-gpu', '--remote-debugging-port=9222', '--hide-scrollbars', '--disable-dev-shm-usage' ],
+	chromeFlags: [ '--no-sandbox', '--headless', '--disable-gpu', '--remote-debugging-port=9222', '--hide-scrollbars', '--disable-dev-shm-usage' ],
 };
 console.log('Starting with options:', options);
 
